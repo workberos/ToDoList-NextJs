@@ -1,0 +1,104 @@
+.form{
+    width: 550px;
+    height: 416px;
+    background: #FFFFFF;
+    border: 1px solid #000000;
+    border-radius: 0px;
+    border-top: none;
+
+    display: flex;
+    justify-content: center;
+}
+.formTaskName{
+    width: 503px;
+    height: 14px;
+    color: #000000;
+    font-family: 'Source Sans Pro';
+    font-size: 14px;
+    font-weight: normal;
+    font-style: normal;
+    text-decoration: none;
+    text-align: left;
+    padding: 10px;
+    background: #FFFFFF;
+    border: 1px solid #BDBDBD;
+    border-radius: 5px;
+
+    margin-top: 28px;
+}
+.error{
+    margin-top: 0;
+    height: 14px;
+    color: red;
+}
+.formLabel{
+    // height: 25px;
+    color: #000000;
+    font-family: 'Source Sans Pro';
+    font-size: 14px;
+    font-weight: bold;
+    font-style: normal;
+    text-decoration: none;
+    text-align: left;
+
+    margin: 0 0 4px 0;
+}
+.formDesTxt{
+    width: 503px;
+    height: 122px;
+
+    color: #000000;
+    font-family: 'Source Sans Pro';
+    font-size: 14px;
+    text-align: left;
+    padding: 10px;
+    line-height: 1px;
+    background: #ffffff;
+    border: 1px solid #000000;
+    border-radius: 0px;
+}
+.formRow{
+    display: flex;
+    justify-content: space-between;
+
+    width: 525px;
+}
+.formCalendar{
+    width: 242px;
+    height: 36px;
+
+    color: #000000;
+    font-family: 'Source Sans Pro';
+    font-size: 14px;
+    text-align: left;
+
+    background: #ffffff;
+    border: 1px solid #000000;
+}
+
+.Dropdown{
+    width: 230px;
+    height: 36px;
+    color: #000000;
+    font-family: 'Source Sans Pro';
+    font-size: 14px;
+    text-align: left;
+    padding: 10px;
+    background: #ffffff;
+    border: 1px solid #000000;
+    border-radius: 0px;
+}
+.formSubmitBtn{
+    width: 524px;
+    height: 31px;
+
+    color: #FFFFFF;
+    font-family: Arimo;
+    font-size: 16px;
+    text-align: center;
+    background: #4CAF50;
+    border: none;
+    border-radius: 5px;
+
+    margin-top: 12px;
+}
