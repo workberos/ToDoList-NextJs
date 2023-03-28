@@ -1,7 +1,7 @@
-import CreatePage from "../../../../component/createPage";
+import CreateTodoComponent from "../../../../component/createTodo"
 
-const AddToDo = ()=>{
-    return <CreatePage/>
+const CreateTodoPage = ()=>{
+    return <CreateTodoComponent/>
 
 }
-export default AddToDo
+export default CreateTodoPage

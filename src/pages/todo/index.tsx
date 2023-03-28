@@ -1,7 +1,6 @@
-import ListToDo from "../../../component/listToDo";
+import ListToDoComponent from "../../../component/listTodo";
 
-const FormDetail = (props:any)=>{
-    return <ListToDo data={props}/>
+
+export default function ListTodoPage() {
+  return <ListToDoComponent/>  
 }
-
-export default FormDetail

@@ -1,11 +1,10 @@
-import Link from "next/link"
-import { Task } from "../../type/home.type";
-import styles from "../styles/Home.module.scss"
-import FormDetail from "./todo";
-import ListToDoHandle from "../../handles/todo/list.todo.handle"
+import Link from "next/link";
+import ListToDoHandle from "../../handles/todo/list.todo.handle";
+import DetailTodoComponent from "../detailTodo";
+import styles from "./index.module.scss";
 
 
-export default function HomePage() {
+export default function ListToDoComponent() {
   const {
     listUI, setListUI,
     listDB, setListDB,
@@ -15,7 +14,8 @@ export default function HomePage() {
     setSelectedItemId, handleDeleteMany
   } = ListToDoHandle()
 
-
+  console.log('listUIlistUI',listUI);
+  
   return (
     <div className={styles.todoListWrapper}>
       <div className={styles.wrapper}>
@@ -25,7 +25,7 @@ export default function HomePage() {
           placeholder="Search..." onChange={handleSearch} />
         <div className={styles.todoListContent}>
           {listUI?.length > 0 ?
-            listUI?.map((item: Task) => {
+            listUI?.map((item: any) => {
               return (
                 <article key={item.taskID} className={styles.todo}>
                   <div className={styles.todoItem}>
@@ -38,7 +38,7 @@ export default function HomePage() {
                       value="Remove" className={styles.removeBtn} />
                   </div>
                   <div className={styles.todoItemDetail}>
-                    {(selectedItemId === item.taskID) && <FormDetail
+                    {(selectedItemId === item.taskID) && <DetailTodoComponent
                       listUI={listUI} setListUI={setListUI}
                       setSelectedItemId={setSelectedItemId}
                       item={item} listDB={listDB}
@@ -47,10 +47,10 @@ export default function HomePage() {
                   </div>
                 </article>
               )
-            }) : <p>Results don't appear</p>}
+            }) : <p>Data Not Found</p>}
         </div>
       </div>
-      {!!toRemove.length && <div className={styles.bulkBar}>
+      {toRemove?.length > 0 && <div className={styles.bulkBar}>
         <p className={styles.bulkLabel}>Bulk Action:</p>
         <div>
           <input className={styles.doneBulk} type="button" value="Done" />

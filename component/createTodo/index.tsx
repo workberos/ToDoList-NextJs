@@ -2,7 +2,7 @@ import Link from "next/link"
 import styles from "./style.module.scss"
 import CreateToDoHandle from "../../handles/todo/create.toto.handle";
 
-const CreatePage = () => {
+const CreateTodoComponent = () => {
   const {
     handleSubmit,
     onSubmit,
@@ -40,10 +40,10 @@ const CreatePage = () => {
         </div>
       </div>
       <input className={styles.formSubmitBtn} type="submit"/>
-      <Link  href="/"><input className={styles.backHome} type="button" value="Home" /></Link>
+      <Link  href="/todo"><input className={styles.backHome} type="button" value="Home" /></Link>
       </div>
     </form>
   </div>
 }
 
-export default CreatePage;
+export default CreateTodoComponent;

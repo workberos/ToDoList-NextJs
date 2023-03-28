@@ -1,11 +1,10 @@
 import Router from "next/router";
 import { useForm } from "react-hook-form";
 import { taskList } from "../../constant/listTask";
-import { Task } from "../../type/home.type";
 import { v4 as uuidv4 } from 'uuid';
 
 const CreateToDoHandle = ()=>{
-    const addNewToDo = (newTask:Task)=>{
+    const addNewToDo = (newTask:any)=>{
         let data:any;
         if(localStorage.getItem('myList')){
           let dataStorage:any = localStorage.getItem('myList')
@@ -39,7 +38,7 @@ const CreateToDoHandle = ()=>{
         console.log("newTask", newTask);
         addNewToDo(newTask)
         // resetForm(); //option
-        Router.push("/") //option
+        Router.push("/todo") //option
       }
       return {
         handleSubmit,

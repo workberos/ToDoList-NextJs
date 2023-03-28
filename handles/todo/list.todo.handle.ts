@@ -1,12 +1,11 @@
 import { useEffect, useState } from "react";
 import { taskList } from "../../constant/listTask";
-import { Task } from "../../type/home.type";
 
 const ListToDoHandle = () => {
-    const [listUI, setListUI] = useState<Array<Object> | any>();
+    const [listUI, setListUI] = useState<Array<Object> | any>([]);
     const [toRemove, setToRemove] = useState<Array<string>>([])
     const [listDB, setListDB] = useState(listUI);
-    const [selectedItemId, setSelectedItemId] = useState<string | null>(null);
+    const [selectedItemId, setSelectedItemId] = useState<string | null>(null);    
     const updateLocalStorage = (list: Array<Object>) => {
         localStorage.setItem("myList", JSON.stringify(list));
     }
@@ -49,8 +48,8 @@ const ListToDoHandle = () => {
     }
     const deleteToDo = (id: string) => {
         //everytime u remove a To do, u need to update localstorage
-        let newListUI = listUI.filter((item: Task) => item.taskID !== id)
-        let newListDB = listDB.filter((item: Task) => item.taskID !== id)
+        let newListUI = listUI.filter((item: any) => item.taskID !== id)
+        let newListDB = listDB.filter((item: any) => item.taskID !== id)
         setListUI(newListUI)
         setListDB(newListDB)
 
@@ -61,9 +60,9 @@ const ListToDoHandle = () => {
             return;
         }
         let dataTempUI: any = listUI;
-        dataTempUI = dataTempUI.filter((item: Task) => !toRemove.includes(item.taskID))
+        dataTempUI = dataTempUI.filter((item: any) => !toRemove.includes(item.taskID))
         let dataTempDB: any = listDB;
-        dataTempDB = dataTempDB.filter((item: Task) => !toRemove.includes(item.taskID))
+        dataTempDB = dataTempDB.filter((item: any) => !toRemove.includes(item.taskID))
         // console.log(dataTempUI, 'dataTempUI');
         setListUI(dataTempUI)
         setListDB(dataTempDB)

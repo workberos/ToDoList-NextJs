@@ -3,11 +3,10 @@ import { useRouter } from "next/router";
 import styles from "./style.module.scss"
 import ListToDoHandle from "../../handles/todo/list.todo.handle";
 
-const ListToDo = (props: any) => {
-
+const DetailTodoComponent = (props: any) => {
   const router = useRouter()
-  const { updateLocalStorage } = ListToDoHandle()
-  const { listUI, setListUI, listDB, setListDB, item, setSelectedItemId } = props.data;
+  const { updateLocalStorage } = ListToDoHandle();
+  const { listUI, setListUI, listDB, item, setSelectedItemId } = props;
   const { register, handleSubmit, formState: { errors } } = useForm({ criteriaMode: "all" });
   const onSubmit = (newTask: any) => {
     newTask.taskID = item.taskID
@@ -31,7 +30,7 @@ const ListToDo = (props: any) => {
     updateLocalStorage(tempListDB)
     setListUI(tempListUI)
     setSelectedItemId(null)
-    router.push("/")
+    router.push("/todo")
   }
   return <>
     <form className={styles.form} onSubmit={handleSubmit(onSubmit)} key={item.taskID}>
@@ -68,4 +67,4 @@ const ListToDo = (props: any) => {
   </>
 }
 
-export default ListToDo
+export default DetailTodoComponent
