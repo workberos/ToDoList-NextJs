@@ -1,12 +1,13 @@
 import { useForm } from "react-hook-form";
-import Handle from "../handles/pages/task.handle";
 import { useRouter } from "next/router";
 import styles from "./style.module.scss"
+import ListToDoHandle from "../../handles/todo/list.todo.handle";
 
-const Form = (props: any) => {
+const ListToDo = (props: any) => {
+
   const router = useRouter()
-  const { updateLocalStorage } = Handle()
-  const { listUI, setListUI, listDB, setListDB, item, setSelectedItemId } = props;
+  const { updateLocalStorage } = ListToDoHandle()
+  const { listUI, setListUI, listDB, setListDB, item, setSelectedItemId } = props.data;
   const { register, handleSubmit, formState: { errors } } = useForm({ criteriaMode: "all" });
   const onSubmit = (newTask: any) => {
     newTask.taskID = item.taskID
@@ -26,7 +27,6 @@ const Form = (props: any) => {
         break; // thoát khỏi vòng lặp nếu đã thay thế phần tử
       }
     }
-
     console.log('tempList', tempListUI);
     updateLocalStorage(tempListDB)
     setListUI(tempListUI)
@@ -42,7 +42,7 @@ const Form = (props: any) => {
       />
       <p className={styles.error}>{errors.taskName && <span>Task name is required</span>}</p>
       <h2 className={styles.formLabel}>Description</h2>
-      <textarea className={styles.formDesTxt} rows={10} defaultValue={item.taskDes} {...register("taskDes")} />
+      <textarea className={styles.formDesTxt} rows={5}  defaultValue={item.taskDes} {...register("taskDes")} />
       <div className={styles.formRow} >
         <div>
           <h2 className={styles.formLabel}>Due Date</h2>
@@ -68,4 +68,4 @@ const Form = (props: any) => {
   </>
 }
 
-export default Form
+export default ListToDo
